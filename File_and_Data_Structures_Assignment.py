@@ -106,12 +106,12 @@ def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
     outline = outline + [headers]
 
     #Number of data lines
-    Nlines = len(dataDict['X'])
+    Nlines = len(dataDict[' X'])
 
     for lidx in range(Nlines):
         #Creating a tab seperated output line
-        tmpline = dataDict['Day'][lidx]+'\t'+str(dataDict['X'][lidx])+ '\t' + \
-                str(dataDict['Y'][lidx])+'\t'+dataDict['Asleep'][lidx]+'\t'+ \
+        tmpline = dataDict['Day'][lidx]+'\t'+str(dataDict[' X'][lidx])+ '\t' + \
+                str(dataDict[' Y'][lidx])+'\t'+dataDict[' Asleep'][lidx]+'\t'+ \
                 dataDict['Behavior Mode'][lidx]+'\t'+str(dataDict['Distance Traveled'][lidx])
         outline = outline + [tmpline]
 
@@ -131,12 +131,12 @@ if __name__ == '__main__':
 
     # read input file
     dataDict = read_data_file(inFile)
-    print ("The X list: \n ", dataDict['X'],'\n')
-    print ("The Y list: \n", dataDict['Y'],'\n')
+    print ("The X list: \n ", dataDict[' X'],'\n')
+    print ("The Y list: \n", dataDict[' Y'],'\n')
 
     #Compute average of a list
-    avg_x = compute_mean(dataDict['X'])
-    avg_y = compute_mean(dataDict['Y'])
+    avg_x = compute_mean(dataDict[' X'])
+    avg_y = compute_mean(dataDict[' Y'])
     avg_energy = compute_mean(dataDict['Energy Level'])
     print ("The average of X list: ", avg_x)
     print ("The average of Y list: ", avg_y)
@@ -144,10 +144,10 @@ if __name__ == '__main__':
 
 
     #Computes cumulative sum of a list
-    print ("The sum list of X: ", compute_sum(dataDict['X']))
-    print ("The sum list of Y: ", compute_sum(dataDict['Y']),'\n')
+    print ("The sum list of X: ", compute_sum(dataDict[' X']))
+    print ("The sum list of Y: ", compute_sum(dataDict[' Y']),'\n')
 
-    dist = compute_distance_traveled(dataDict['X'],dataDict['Y'])
+    dist = compute_distance_traveled(dataDict[' X'],dataDict[' Y'])
     dataDict['Distance Traveled'] = dist
     t_dist = compute_sum(dist)
 
