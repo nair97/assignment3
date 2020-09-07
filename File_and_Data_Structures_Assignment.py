@@ -37,16 +37,9 @@ def compute_distance_traveled(X, Y):
     return t_dist
 
 # define function to read in the contents of the given data file, convert
-# columns to appropriate numerical values (as needed), and create a data
+# columns to appropriate numerical values and create a data
 # structure for processing using a dictionary.  The dictionary should be
 # returned to the main code for later use.
-#
-# - dictionary keys should not include white space.
-# - dictionary items should be named for column headers, and include data for
-#   that column converted to the appropriate numerical format, if appropriate.
-# - end status of the raccoon should be stored in the data dictionary under
-#   the keyword 'Status'
-
 
 def read_data_file(fileName):
     #to read txt file
@@ -89,8 +82,6 @@ def read_data_file(fileName):
 # The header should be followed by a blank line, then the following headers
 # prviding a starting point for a tab delimited table of data values:
 # - Date, X, Y, Asleep Flag, Behavior Mode, Distance Traveled
-# - subsequent lines should be the relevent values for each header category
-#   separated by tabs.
 
 def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
     outline = []
