@@ -141,8 +141,6 @@ if __name__ == '__main__':
     dist = compute_distance_traveled(dataDict[' X'],dataDict[' Y'])
     dataDict['Distance Traveled'] = dist
     t_dist = compute_sum(dist)
-
-    print(dataDict)
     
 # write output data to a file
 write_output_file( outFile, dataDict, avg_energy, avg_x, avg_y, t_dist )
