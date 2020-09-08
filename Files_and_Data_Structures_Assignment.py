@@ -93,7 +93,7 @@ def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
     outline = outline + [""]
 
     #Create headers which are tab seperated
-    headers = "Date,X,Y,Asleep Flag,Behavior Mode,Distance Traveled".replace(',','\t')
+    headers = "Date, X, Y, Asleep Flag,Behavior Mode,Distance Traveled".replace(',','\t')
     outline = outline + [headers]
 
     #Number of data lines
@@ -142,8 +142,10 @@ if __name__ == '__main__':
     dataDict['Distance Traveled'] = dist
     t_dist = compute_sum(dist)
 
+    print(dataDict)
     
-
+# write output data to a file
+write_output_file( outFile, dataDict, avg_energy, avg_x, avg_y, t_dist )
 
 #outName is a string defining the name of the output file
         #dataDict is the data dictionary first created by read_data_file
