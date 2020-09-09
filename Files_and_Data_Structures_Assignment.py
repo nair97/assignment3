@@ -108,9 +108,7 @@ def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
 
     for lidx in range(Nlines):
         #Creating a tab seperated output line
-        tmpline = dataDict['Day'][lidx]+'\t'+str(dataDict[' X'][lidx])+ '\t' + \
-                str(dataDict[' Y'][lidx])+'\t'+dataDict[' Asleep'][lidx]+'\t'+ \
-                dataDict['Behavior Mode'][lidx]+'\t'+str(dataDict['Distance Traveled'][lidx])
+        tmpline = dataDict['Day'][lidx] + str(dataDict[' X'][lidx]) + str(dataDict[' Y'][lidx]) + dataDict[' Asleep'][lidx] + dataDict['Behavior Mode'][lidx] + str(dataDict['Distance Traveled'][lidx])
         outline = outline + [tmpline]
 
     file = open(outName,"w")
