@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Sep  3 23:13:57 2020
+Created on Tue Sep  8 20:43:35 2020
 
 @author: meerarakesh09
 """
-
 
 import math
 # import required modules here
@@ -23,8 +22,7 @@ def compute_sum(value_list):
 def distance_between_points(x1,y1,x2,y2):
         return math.sqrt((x2-x1)**2 + (y2-y1)**2)
 
-#Computes the distance between each subsequent set of coordinates from Function returns list of
-
+#Computes the distance between each subsequent set of coordinates 
 def compute_distance_traveled(X, Y):
     t_dist = [0]
     for i in range(len(X)-1):
@@ -37,9 +35,16 @@ def compute_distance_traveled(X, Y):
     return t_dist
 
 # define function to read in the contents of the given data file, convert
-# columns to appropriate numerical values and create a data
+# columns to appropriate numerical values (as needed), and create a data
 # structure for processing using a dictionary.  The dictionary should be
 # returned to the main code for later use.
+#
+# - dictionary keys should not include white space.
+# - dictionary items should be named for column headers, and include data for
+#   that column converted to the appropriate numerical format, if appropriate.
+# - end status of the raccoon should be stored in the data dictionary under
+#   the keyword 'Status'
+
 
 def read_data_file(fileName):
     #to read txt file
@@ -65,7 +70,7 @@ def read_data_file(fileName):
     for lidx in range(1,Nlines-1): # process all data lines in the file
        tmpvar = Data[lidx] # get all data from current line
        for col in range(len(tmpvar)): # loop through all data values on current line
-           Datadict[header[col]] = Datadict[header[col]] + [tmpvar[col]] # create key and store first data item as a list
+           Datadict[header[col]] = Datadict[header[col]] + [tmpvar[col] ] # create key and store first data item as a list
 
 # to format the animal status
     Datadict["Status"] = lines[-1].strip() #add ew key and store status message
@@ -82,6 +87,8 @@ def read_data_file(fileName):
 # The header should be followed by a blank line, then the following headers
 # prviding a starting point for a tab delimited table of data values:
 # - Date, X, Y, Asleep Flag, Behavior Mode, Distance Traveled
+# - subsequent lines should be the relevent values for each header category
+#   separated by tabs.
 
 def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
     outline = []
@@ -93,7 +100,7 @@ def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
     outline = outline + [""]
 
     #Create headers which are tab seperated
-    headers = "Date, X, Y, Asleep Flag,Behavior Mode,Distance Traveled".replace(',','\t')
+    headers = "Date, X, Y, Asleep, Flag, Behavior Mode, Distance Traveled".replace(',','\t')
     outline = outline + [headers]
 
     #Number of data lines
@@ -141,9 +148,10 @@ if __name__ == '__main__':
     dist = compute_distance_traveled(dataDict[' X'],dataDict[' Y'])
     dataDict['Distance Traveled'] = dist
     t_dist = compute_sum(dist)
-    
-# write output data to a file
-write_output_file( outFile, dataDict, avg_energy, avg_x, avg_y, t_dist )
+
+    # write output data to a file
+    #write_output_file( outFile, dataDict, avg_energy, avg_x, avg_y, t_dist )
+
 
 #outName is a string defining the name of the output file
         #dataDict is the data dictionary first created by read_data_file
@@ -151,4 +159,3 @@ write_output_file( outFile, dataDict, avg_energy, avg_x, avg_y, t_dist )
         #avg_x is a single value of the average x-position
         #avg_y is a single value of the average y-poisition
         #t_dist is a single value of the total distance traveled'''
-
