@@ -4,7 +4,7 @@ Distance traveled : 593.9382753487247
 Average energy level: 563.6214285714285
 Raccoon end state: George number 6 died from starvation
 
-Date	 X	 Y	 Asleep Flag	Behavior Mode	Distance Traveled
+Date	 X	 Y	 Asleep	 Flag	 Behavior Mode	 Distance Traveled
 6/19/2008	591071.374756626	4504664.29938361	False	SafeSearchModifier	0
 6/19/2008	591112.752918467	4504620.85001397	False	RiskySearchModifier	59.99999999488471
 6/19/2008	591159.738875885	4504583.53621216	False	RiskyForageModifier	60.00000000009696

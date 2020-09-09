@@ -150,7 +150,7 @@ if __name__ == '__main__':
     t_dist = compute_sum(dist)
 
     # write output data to a file
-    #write_output_file( outFile, dataDict, avg_energy, avg_x, avg_y, t_dist )
+    write_output_file( outFile, dataDict, avg_energy, avg_x, avg_y, t_dist )
 
 
 #outName is a string defining the name of the output file
