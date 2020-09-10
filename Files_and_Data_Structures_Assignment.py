@@ -61,7 +61,9 @@ def read_data_file(fileName):
 
 #data structure framework
     header = lines[0].strip().split(',') # to get the header strings from fileName
-
+    for i in range(len(header)):
+        header[i] = header[i].strip()
+      
 #to build empty data dictionary
     Datadict = dict.fromkeys(header, [])
 
@@ -100,15 +102,15 @@ def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
     outline = outline + [""]
 
     #Create headers which are tab seperated
-    headers = "Date, X, Y, Asleep, Flag, Behavior Mode, Distance Traveled".replace(',','\t')
+    headers = "Date, X, Y, Asleep, Flag, Behavior Mode, Distance Traveled".replace(',' , '\t')
     outline = outline + [headers]
 
     #Number of data lines
-    Nlines = len(dataDict[' X'])
+    Nlines = len(dataDict['X'])
 
     for lidx in range(Nlines):
         #Creating a tab seperated output line
-        tmpline = dataDict['Day'][lidx] + str(dataDict[' X'][lidx]) + str(dataDict[' Y'][lidx]) + dataDict[' Asleep'][lidx] + dataDict['Behavior Mode'][lidx] + str(dataDict['Distance Traveled'][lidx])
+        tmpline = dataDict['Day'][lidx] + str(dataDict['X'][lidx]) + str(dataDict['Y'][lidx]) + dataDict['Asleep'][lidx] + dataDict['Behavior Mode'][lidx] + str(dataDict['Distance Traveled'][lidx])
         outline = outline + [tmpline]
 
     file = open(outName,"w")
@@ -127,12 +129,12 @@ if __name__ == '__main__':
 
     # read input file
     dataDict = read_data_file(inFile)
-    print ("The X list: \n ", dataDict[' X'],'\n')
-    print ("The Y list: \n", dataDict[' Y'],'\n')
+    print ("The X list: \n ", dataDict['X'],'\n')
+    print ("The Y list: \n", dataDict['Y'],'\n')
 
     #Compute average of a list
-    avg_x = compute_mean(dataDict[' X'])
-    avg_y = compute_mean(dataDict[' Y'])
+    avg_x = compute_mean(dataDict['X'])
+    avg_y = compute_mean(dataDict['Y'])
     avg_energy = compute_mean(dataDict['Energy Level'])
     print ("The average of X list: ", avg_x)
     print ("The average of Y list: ", avg_y)
@@ -140,10 +142,10 @@ if __name__ == '__main__':
 
 
     #Computes cumulative sum of a list
-    print ("The sum list of X: ", compute_sum(dataDict[' X']))
-    print ("The sum list of Y: ", compute_sum(dataDict[' Y']),'\n')
+    print ("The sum list of X: ", compute_sum(dataDict['X']))
+    print ("The sum list of Y: ", compute_sum(dataDict['Y']),'\n')
 
-    dist = compute_distance_traveled(dataDict[' X'],dataDict[' Y'])
+    dist = compute_distance_traveled(dataDict['X'],dataDict['Y'])
     dataDict['Distance Traveled'] = dist
     t_dist = compute_sum(dist)
 
