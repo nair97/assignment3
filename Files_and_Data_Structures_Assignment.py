@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Sep  8 20:43:35 2020
+Created on Mon Oct 12 22:39:58 2020
 
 @author: meerarakesh09
 """
+
 
 import math
 # import required modules here
@@ -159,3 +160,4 @@ if __name__ == '__main__':
         #avg_x is a single value of the average x-position
         #avg_y is a single value of the average y-poisition
         #t_dist is a single value of the total distance traveled'''
+
