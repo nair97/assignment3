@@ -103,7 +103,7 @@ def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
     outline = outline + [""]
 
     #Create headers which are tab seperated
-    headers = "Date, X, Y, Asleep, Flag, Behavior Mode, Distance Traveled".replace(',' , '\t')
+    headers = "Date, X, Y, Asleep, Flag, Behavior Mode, Distance Traveled".replace(',' , ' \t ')
     outline = outline + [headers]
 
     #Number of data lines
@@ -111,12 +111,12 @@ def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
 
     for lidx in range(Nlines):
         #Creating a tab seperated output line
-        tmpline = dataDict['Day'][lidx] + str(dataDict['X'][lidx]) + str(dataDict['Y'][lidx]) + dataDict['Asleep'][lidx] + dataDict['Behavior Mode'][lidx] + str(dataDict['Distance Traveled'][lidx])
+        tmpline = dataDict['Day'][lidx] + '\t'+ str(dataDict['X'][lidx]) + '\t'+ str(dataDict['Y'][lidx]) + '\t'+ dataDict['Asleep'][lidx] + '\t' + dataDict['Behavior Mode'][lidx] + '\t' + str(dataDict['Distance Traveled'][lidx])
         outline = outline + [tmpline]
 
-    file = open(outName,"w")
-    file.write('\n'.join(outline))
-    file.close()
+        file = open(outName,"w")
+        file.write('\n \t'.join(outline))
+        file.close()
 
 # the following condition checks whether we are
 # running as a script, in which case run the test code,
@@ -125,13 +125,13 @@ def write_output_file( outName, dataDict, avg_energy, avg_x, avg_y, t_dist ):
 if __name__ == '__main__':
 
     # set input and output file names
-    inFile = '2008Male00006.txt'
+    inFile = '2008Male00006.txt' 
     outFile = "Georges_life.txt"
 
     # read input file
     dataDict = read_data_file(inFile)
-    print ("The X list: \n ", dataDict['X'],'\n')
-    print ("The Y list: \n", dataDict['Y'],'\n')
+    print ("The X list: \n \t ", dataDict['X'],'\n \t')
+    print ("The Y list: \n \t", dataDict['Y'],'\n \t')
 
     #Compute average of a list
     avg_x = compute_mean(dataDict['X'])
@@ -151,7 +151,7 @@ if __name__ == '__main__':
     t_dist = compute_sum(dist)
 
     # write output data to a file
-    write_output_file( outFile, dataDict, avg_energy, avg_x, avg_y, t_dist )
+    write_output_file( outFile, dataDict, avg_energy, avg_x, avg_y, t_dist)
 
 
 #outName is a string defining the name of the output file

@@ -1,19 +1,15 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2513
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+"""
+Created on Thu Sep  3 23:13:57 2020
 
-\f0\fs24 \cf0 Files_and_Data_Structures_Assignment.py\
-#read 2008Male00006.txt file\
-#define and calculate functions\
-        compute_mean(value_list)\
-        compute_sum(value_list)\
-        distance_between_points(x1,y1,x2,y2)\
-        compute_distance_traveled(X, Y)\
-#build dictionary\
-#format file\
-#write George_life.txt file and formatted results\
-\
-}
+@author: meerarakesh09
+Files_and_Data_Structures_Assignment.py
+""" 
+#read 2008Male00006.txt file
+#define and calculate functions
+        compute_mean(value_list) # Computes average of the list
+        compute_sum(value_list)  # Computes cumulative sum of the list
+        distance_between_points(x1,y1,x2,y2)  # Computes the distance between two sets of coordinate points (x1,y1) and (x2,y2), and that value.
+        compute_distance_traveled(X, Y)   # Computes the distance between each subsequent set of coordinates 
+#build dictionary
+#format file and data structure framework to format the animal status
+#write George_life.txt file and formatted results 
